@@ -12,7 +12,7 @@
 - `database_user` : le nom de l'utilisateur qui a accès à la BDD
 - `database_password` : le mot de passe de l'utilisateur qui a accès à la BDD
 
-La partie mailer n'est pas importante
+Pour la partie mailer, vous pouvez valider les réponses par défaut.
 
 ## Créer la BDD
 
