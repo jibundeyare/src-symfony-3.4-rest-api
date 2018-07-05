@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\MaxDepth;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Student
@@ -24,6 +26,7 @@ class Student
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="firstname", type="string", length=255, nullable=false, unique=false)
      */
     private $firstname;
@@ -31,6 +34,7 @@ class Student
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="lastname", type="string", length=255, nullable=false, unique=false)
      */
     private $lastname;
@@ -52,6 +56,7 @@ class Student
     /**
      * @var \AppBundle\Entity\Promotion
      *
+     * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Promotion", inversedBy="students")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="promotion_id", referencedColumnName="id")
@@ -190,4 +195,3 @@ class Student
         return $this->promotion;
     }
 }
-

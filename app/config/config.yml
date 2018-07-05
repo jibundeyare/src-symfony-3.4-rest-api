@@ -66,6 +66,20 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
+# jms/serializer-bundle
+jms_serializer:
+    default_context:
+        serialization:
+            enable_max_depth_checks: true
+        deserialization:
+            enable_max_depth_checks: true
+
+# friendsofsymony/fos-rest
+fos_rest:
+    format_listener:
+        rules:
+            - { path: '^/api/', priorities: ['json'], fallback_format: json, prefer_extension: false }
+
 # nelmio/cors-bundle
 nelmio_cors:
     defaults:
@@ -91,8 +105,3 @@ nelmio_cors:
             allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
             max_age: 3600
             hosts: ['^api\.']
-
-# friendsofsymony/fos-rest
-fos_rest:
-    routing_loader:
-        default_format: json

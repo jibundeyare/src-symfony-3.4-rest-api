@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\MaxDepth;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Promotion
@@ -24,6 +26,7 @@ class Promotion
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="name", type="string", length=255, nullable=false, unique=true)
      */
     private $name;
@@ -45,6 +48,7 @@ class Promotion
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
+     * @MaxDepth(2)
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Student", mappedBy="promotion")
      */
     private $students;
@@ -173,4 +177,3 @@ class Promotion
         return $this->students;
     }
 }
-

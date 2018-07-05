@@ -1,4 +1,4 @@
-# Symfony rest api
+# Symfony 3.4 REST API
 
 ## Install
 
